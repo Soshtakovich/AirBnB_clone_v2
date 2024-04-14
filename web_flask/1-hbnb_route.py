@@ -1,23 +1,25 @@
 #!/usr/bin/python3
-"""simple flask app
-"""
+'''A simple Flask web application.
+'''
 from flask import Flask
+
+
 app = Flask(__name__)
+'''The Flask application instance.'''
+app.url_map.strict_slashes = False
 
 
-@app.route("/", strict_slashes=False)
-def hello_hbnb():
-    """root route
-    """
-    return "Hello HBNB!"
+@app.route('/')
+def index():
+    '''The home page.'''
+    return 'Hello HBNB!'
 
 
-@app.route("/hbnb", strict_slashes=False)
+@app.route('/hbnb')
 def hbnb():
-    """hbnb
-    """
-    return "HBNB"
+    '''The hbnb page.'''
+    return 'HBNB'
 
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port='5000')
